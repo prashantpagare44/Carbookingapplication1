@@ -4,7 +4,7 @@ import cors from 'cors';
 import connectDb from './config/config.js';
 import carRoutes from './router/carRoutes.js';
 import bookingRoutes from './router/bookingRoutes.js';
-import authRoutes from './router/authRoutes.js';
+// import authRoutes from './router/authRoutes.js';
 
 
 dotenv.config();
@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 // API Routes
 app.use('/', carRoutes);
 app.use('/', bookingRoutes);
-app.use('/auth', authRoutes);
+// app.use('/auth', authRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
