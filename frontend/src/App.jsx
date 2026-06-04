@@ -14,10 +14,7 @@ function App() {
         <Navbar />
         
         <Routes>
-          {/* Homepage par saari cars dikhayenge */}
           <Route path="/" element={<CarListing />} />
-          
-          {/* Book car ka page */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/book/:id" element={<BookCar />} />
