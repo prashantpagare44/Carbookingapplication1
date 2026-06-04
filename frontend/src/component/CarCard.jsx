@@ -1,16 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// 1. Props Receiving: Parent (CarListing) se 'car' ka data yahan receive hota hai
 function CarCard({ car }) {
     return (
         <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-            {/* Car Image with Status Badge */}
+            
+            {/* 2. Display Car Image (Sheet Requirement) */}
             <div className="h-56 overflow-hidden relative bg-slate-100">
                 <img 
                     src={car.image} 
                     alt={car.name} 
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
+                
+                {/* 3. Display Availability Badge (Sheet Requirement) - Conditional Rendering */}
                 {car.available ? (
                     <span className="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-1 text-xs font-bold rounded-full shadow-sm">
                         Available
@@ -22,7 +26,7 @@ function CarCard({ car }) {
                 )}
             </div>
 
-            {/* Car Details */}
+            {/* 4. Display Car Name and Price (Sheet Requirement) */}
             <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
                     <div>
@@ -35,6 +39,7 @@ function CarCard({ car }) {
                     </div>
                 </div>
                 
+                {/* 5. Booking Action (Link to BookCar Page) */}
                 <div className="mt-6">
                     <Link to={car.available ? `/book/${car._id}` : "#"} className={`block w-full text-center py-3 rounded-xl font-bold transition-colors ${car.available ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-md shadow-blue-200' : 'bg-slate-100 text-slate-400 cursor-not-allowed'}`}>
                         {car.available ? 'Book This Car' : 'Currently Unavailable'}
